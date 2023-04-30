@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #585858;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sketch-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* border: red dotted; */
+  background-color: bisque;
+  width: 960px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.sketch-cell {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+}
+
+.sketch-cell:hover {
+  background-color: yellow;
+}
+
+.painted {
+  background-color: rebeccapurple;
+}
+
+.btn {
+  font-size: 32px;
+  width: 200px;
+  margin-bottom: 100px;
+}
