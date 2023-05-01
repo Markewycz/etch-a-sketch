@@ -11,15 +11,25 @@
   <body>
     <div class="options-container">
       <div class="btn-container">
-        <button class="btn change-grid">Change Grid</button>
+        <input type="color" id="color-picker" class="color-picker" />
+        <button class="btn rainbow">Rainbow!</button>
+        <button class="btn eraser">Eraser</button>
         <button class="btn clear-grid">Clear</button>
+        <!-- <button class="btn change-grid">Change Grid</button> -->
+        <div class="slider">
+          <input
+            id="change-grid"
+            oninput="changeGrid(this.value)"
+            onchange="changeGrid(this.value)"
+            type="range"
+            min="1"
+            max="64"
+            value="16"
+          />
+          <p class="grid-preview"></p>
+        </div>
       </div>
-      <div class="brush-color">
-        <input type="radio" id="radio-one" name="switch-one" />
-        <label for="radio-one">Black</label>
-        <input type="radio" id="radio-two" name="switch-one" />
-        <label for="radio-two">Rainbow</label>
-      </div>
+      <div class="brush-color"></div>
     </div>
     <div class="sketch-container"></div>
   </body>

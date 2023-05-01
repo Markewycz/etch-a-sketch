@@ -1,12 +1,21 @@
 const container = document.querySelector(".sketch-container");
 const div = document.createElement("div");
-const btnChangeGrid = document.querySelector(".change-grid");
+
+const sliderGrid = document.querySelector("#change-grid");
+const gridPreview = document.querySelector(".grid-preview");
+
 const btnClearGrid = document.querySelector(".clear-grid");
-const black = document.querySelector("#radio-one");
-const rainbow = document.querySelector("#radio-two");
+const btnEraser = document.querySelector(".eraser");
+const colorPicker = document.querySelector(".color-picker");
+const rainbow = document.querySelector(".rainbow");
+const eraser = document.querySelector(".eraser");
+
 let gridCellsPrompt = 16;
 let sketch;
+let mode = 0;
 
+///////////////////
+// Functions
 const calcGrid = () => gridCellsPrompt * gridCellsPrompt;
 const calcCell = () => 600 / gridCellsPrompt;
 const randomColor = () => {
@@ -27,36 +36,48 @@ const generateGrid = () => {
   }
   sketch = document.querySelectorAll(".sketch-cell");
 
+  gridPreview.textContent = `${sliderGrid.value}x${sliderGrid.value}`
+
   sketch.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
       if (e.buttons === 1) {
-        if (black.checked) cell.style.backgroundColor = "black";
-        if (rainbow.checked) cell.style.backgroundColor = randomColor();
+        if (mode === 0) cell.style.backgroundColor = colorPicker.value;
+        if (mode === 1) cell.style.backgroundColor = randomColor();
+        if (mode === 2) cell.style.backgroundColor = "";
       }
     });
   });
 };
 generateGrid();
 
-///////////////////////////////////
-// FORMULA canvas width / gridCellsPrompt = cell width/height px
-
-// Clear existing grid
 const clearGrid = () => {
   sketch.forEach((cell) => {
     cell.parentNode.removeChild(cell);
   });
 };
 
+/////////////////////
+// Event listeners
+
+colorPicker.addEventListener("click", () => (mode = 0));
+rainbow.addEventListener("click", () => (mode = 1));
+eraser.addEventListener("click", () => (mode = 2));
+
 btnClearGrid.addEventListener("click", () => {
   clearGrid();
   generateGrid();
 });
 
-// Change grid cells per row
-btnChangeGrid.addEventListener("click", () => {
-  gridCellsPrompt = +prompt("How many cells per row you want?");
-  if (gridCellsPrompt >= 100) return alert("Pick number up to 100!");
+const changeGrid = (value) => {
+  gridCellsPrompt = value;
+  gridPreview.textContent = `${value}x${value}`;
   clearGrid();
   generateGrid();
-});
+};
+
+// sliderGrid.addEventListener("click", () => {
+//   gridCellsPrompt = +prompt("How many cells per row you want?");
+//   if (gridCellsPrompt >= 100) return alert("Pick number up to 100!");
+//   clearGrid();
+//   generateGrid();
+// });
