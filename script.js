@@ -1,6 +1,7 @@
 const container = document.querySelector(".sketch-container");
 const div = document.createElement("div");
 const btnChangeGrid = document.querySelector(".change-grid");
+const btnClearGrid = document.querySelector(".clear-grid");
 const black = document.querySelector("#radio-one");
 const rainbow = document.querySelector("#radio-two");
 let gridCellsPrompt = 16;
@@ -46,6 +47,11 @@ const clearGrid = () => {
     cell.parentNode.removeChild(cell);
   });
 };
+
+btnClearGrid.addEventListener("click", () => {
+  clearGrid();
+  generateGrid();
+});
 
 // Change grid cells per row
 btnChangeGrid.addEventListener("click", () => {

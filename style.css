@@ -37,13 +37,13 @@ body {
 }
 
 .btn {
-  font-size: 24px;
+  font-size: 18px;
   width: 130px;
-  margin-bottom: 60px;
 }
 
 .options-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 20px;
 }
