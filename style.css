@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  gap: 70px;
 }
 
 .sketch-container {
@@ -18,15 +18,13 @@ body {
   flex-wrap: wrap;
   /* border: red dotted; */
   background-color: bisque;
-  width: 960px;
+  width: 600px;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
 .sketch-cell {
-  width: 60px;
-  height: 60px;
   background-color: white;
 }
 
@@ -39,7 +37,13 @@ body {
 }
 
 .btn {
-  font-size: 32px;
-  width: 200px;
-  margin-bottom: 100px;
+  font-size: 24px;
+  width: 130px;
+  margin-bottom: 60px;
+}
+
+.options-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
