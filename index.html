@@ -6,31 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch a sketch!</title>
     <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/draggable.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="options-container">
-      <div class="btn-container">
-        <input type="color" id="color-picker" class="color-picker" />
-        <button class="btn rainbow">Rainbow!</button>
-        <button class="btn eraser">Eraser</button>
-        <button class="btn clear-grid">Clear</button>
-        <!-- <button class="btn change-grid">Change Grid</button> -->
-        <div class="slider">
-          <input
-            id="change-grid"
-            oninput="changeGrid(this.value)"
-            onchange="changeGrid(this.value)"
-            type="range"
-            min="1"
-            max="64"
-            value="16"
-          />
-          <p class="grid-preview"></p>
+    <div class="container">
+      <div class="board">
+        <div class="title">
+          <h1>Etch-a-sketch!</h1>
+        </div>
+        <div class="board-sketch"></div>
+
+        <div class="board-tools">
+          <input type="color" id="color-picker" class="color-picker" />
+          <button class="btn rainbow">Rainbow!</button>
+          <button class="btn shadow">Shadowing</button>
+          <button class="btn eraser">Eraser</button>
+          <button class="btn clear-grid">Clear board</button>
+          <div class="slider">
+            <input
+              id="change-grid"
+              oninput="previewGrid(this.value)"
+              onchange="changeGrid(this.value)"
+              type="range"
+              min="1"
+              max="64"
+              value="16"
+            />
+            <p class="grid-preview"></p>
+          </div>
         </div>
       </div>
-      <div class="brush-color"></div>
     </div>
-    <div class="sketch-container"></div>
   </body>
 </html>
