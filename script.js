@@ -10,7 +10,7 @@ const rainbow = document.querySelector(".rainbow");
 const shadow = document.querySelector(".shadow");
 const eraser = document.querySelector(".eraser");
 
-let gridCellsPrompt = 16;
+let size = 16;
 let sketch;
 let mode = 0;
 
@@ -18,8 +18,7 @@ let mode = 0;
 125;
 ///////////////////
 // Functions
-const calcGrid = () => gridCellsPrompt * gridCellsPrompt;
-const calcCell = () => 500 / gridCellsPrompt;
+const calcCell = () => 500 / size;
 const randomColor = () => {
   const letters = "0123456789ABCDEF";
   let color = "#";
@@ -30,11 +29,21 @@ const randomColor = () => {
 };
 
 const generateGrid = () => {
-  for (let i = 0; i < calcGrid(); i++) {
-    const div = document.createElement("div");
-    div.style.width = calcCell() + "px";
-    div.style.height = calcCell() + "px";
-    container.appendChild(div).classList.add("sketch-cell");
+  for (let i = 1; i <= size * size; i++) {
+    const square = document.createElement("div");
+    square.style.width = calcCell() + "px";
+    square.style.height = calcCell() + "px";
+    container.appendChild(square).classList.add("sketch-cell");
+
+    if (i == 1) {
+      square.style.borderTopLeftRadius = "10px";
+    } else if (i == size) {
+      square.style.borderTopRightRadius = "10px";
+    } else if (i == size * size - size + 1) {
+      square.style.borderBottomLeftRadius = "10px";
+    } else if (i == size * size) {
+      square.style.borderBottomRightRadius = "10px";
+    }
   }
   sketch = document.querySelectorAll(".sketch-cell");
 
@@ -93,7 +102,7 @@ btnClearGrid.addEventListener("click", () => {
 
 const previewGrid = (value) => (gridPreview.textContent = `${value}x${value}`);
 const changeGrid = (value) => {
-  gridCellsPrompt = value;
+  size = value;
   clearGrid();
   generateGrid();
 };

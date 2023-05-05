@@ -20,12 +20,12 @@ body {
   align-items: center;
   flex-direction: column;
 
-  width: 725px;
-  padding: 50px;
+  width: 800px;
+  height: 750px;
   background-color: rgb(220, 20, 60);
   box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .board-sketch {
@@ -35,10 +35,14 @@ body {
   width: 500px;
   height: 500px;
   background-color: #dddddd;
+
+  -webkit-box-shadow: inset 0px 0px 5px 3px rgba(0, 0, 0, 0.71);
+  -moz-box-shadow: inset 0px 0px 5px 3px rgba(0, 0, 0, 0.71);
   box-shadow: inset 0px 0px 5px 3px rgba(0, 0, 0, 0.71);
   border-radius: 10px;
 
-  overflow: hidden;
+  z-index: 1;
+
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -46,11 +50,6 @@ body {
 
 .sketch-cell {
   box-sizing: border-box;
-  background-color: #dddddd;
-}
-
-.sketch-cell:hover {
-  /* background-color: yellow; */
 }
 
 .board-tools {
@@ -99,6 +98,7 @@ body {
   font-size: 24px;
   font-family: "Satisfy", cursive;
   color: #f4ff78;
+  letter-spacing: 5px;
 }
 
 .btn {
@@ -113,4 +113,16 @@ body {
 .btn:active {
   transform: translateY(2px);
   box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.5);
+}
+
+footer h2 {
+  margin: 30px;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-weight: 100;
+}
+
+a:visited {
+  color: #000;
 }
