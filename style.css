@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #5f9ea0;
+  background-color: #b7ccb9;
 }
 
 .container {
@@ -65,9 +65,8 @@ body {
   appearance: none;
   background-color: transparent;
 
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
+  width: 100px;
+  height: 100px;
 
   border: none;
   cursor: pointer;
@@ -75,12 +74,16 @@ body {
 
 .color-picker::-webkit-color-swatch {
   border-radius: 50%;
-  border: 2px solid #eee;
+  /* border: 2px solid #eee; */
+  border: none;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .color-picker::-moz-color-swatch {
   border-radius: 50%;
-  border: 2px solid #eee;
+  /* border: 2px solid #eee; */
+  border: none;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .slider {
@@ -88,17 +91,18 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  background-color: aliceblue;
+  background-color: #ffffff;
   padding: 5px;
   border-radius: 5px;
 }
 
 .title {
-  margin-bottom: 20px;
   font-size: 24px;
   font-family: "Satisfy", cursive;
   color: #f4ff78;
   letter-spacing: 5px;
+  text-align: center;
+  text-shadow: 1px 2px 5px black;
 }
 
 .btn {
@@ -125,4 +129,21 @@ footer h2 {
 
 a:visited {
   color: #000;
+}
+
+.size-controller {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #eee;
+  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.marker {
+  background: #e90418;
+  position: relative;
+  height: 10px;
+  right: 0px;
+  top: 40px;
+  width: 10px;
 }

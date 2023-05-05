@@ -14,8 +14,33 @@ let size = 16;
 let sketch;
 let mode = 0;
 
-15625;
-125;
+const sizeController = Draggable.create(".size-controller", {
+  type: "rotation",
+  bounds: { minRotation: 0, maxRotation: 180 },
+  onDragEnd: () => {
+    if (sizeController[0].endRotation < 22.5) {
+      size = 8;
+    } else if (sizeController[0].endRotation < 45) {
+      size = 16;
+    } else if (sizeController[0].endRotation < 67.5) {
+      size = 24;
+    } else if (sizeController[0].endRotation < 90) {
+      size = 32;
+    } else if (sizeController[0].endRotation < 112.5) {
+      size = 40;
+    } else if (sizeController[0].endRotation < 135) {
+      size = 48;
+    } else if (sizeController[0].endRotation < 157.5) {
+      size = 56;
+    } else {
+      size = 64;
+    }
+    previewGrid(size);
+    clearGrid();
+    generateGrid();
+  },
+});
+
 ///////////////////
 // Functions
 const calcCell = () => 500 / size;
@@ -46,8 +71,7 @@ const generateGrid = () => {
     }
   }
   sketch = document.querySelectorAll(".sketch-cell");
-
-  gridPreview.textContent = `${sliderGrid.value}x${sliderGrid.value}`;
+  gridPreview.textContent = `${size}x${size}`;
 
   sketch.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
