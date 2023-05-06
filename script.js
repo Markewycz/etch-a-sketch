@@ -52,6 +52,12 @@ const randomColor = () => {
   }
   return color;
 };
+const previewGrid = (value) => (gridPreview.textContent = `${value}x${value}`);
+const changeGrid = (value) => {
+  size = value;
+  clearGrid();
+  generateGrid();
+};
 
 const generateGrid = () => {
   for (let i = 1; i <= size * size; i++) {
@@ -106,16 +112,8 @@ const clearGrid = () => {
 colorPicker.addEventListener("click", () => (mode = 0));
 rainbow.addEventListener("click", () => (mode = 1));
 eraser.addEventListener("click", () => (mode = 2));
-shadow.addEventListener("click", () => (mode = 3));
 
 btnClearGrid.addEventListener("click", () => {
   clearGrid();
   generateGrid();
 });
-
-const previewGrid = (value) => (gridPreview.textContent = `${value}x${value}`);
-const changeGrid = (value) => {
-  size = value;
-  clearGrid();
-  generateGrid();
-};
