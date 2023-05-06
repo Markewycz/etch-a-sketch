@@ -76,22 +76,11 @@ const generateGrid = () => {
   sketch.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
       if (e.buttons === 1) {
+        let opacity = 0.1;
         if (mode === 0) cell.style.backgroundColor = colorPicker.value;
         if (mode === 1) cell.style.backgroundColor = randomColor();
         if (mode === 2) cell.style.backgroundColor = "";
         if (mode === 3) {
-          let opacity = 0.1;
-
-          if (!cell.style.backgroundColor) {
-            cell.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
-          }
-
-          console.log(cell.style.backgroundColor);
-          if (cell.style.backgroundColor === `rgba(0, 0, 0, ${opacity})`) {
-            opacity += 0.1;
-            cell.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
-            console.log(cell.style.backgroundColor, opacity);
-          }
         }
       }
       cell.addEventListener("click", (e) => {
